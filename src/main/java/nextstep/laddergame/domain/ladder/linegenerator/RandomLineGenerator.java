@@ -3,6 +3,7 @@ package nextstep.laddergame.domain.ladder.linegenerator;
 import static nextstep.laddergame.domain.ladder.Line.isAllPointsFalse;
 import java.util.ArrayList;
 import java.util.List;
+import nextstep.laddergame.domain.ladder.Line;
 import nextstep.laddergame.util.RandomUtil;
 
 public class RandomLineGenerator implements LineGenerator {
@@ -14,7 +15,7 @@ public class RandomLineGenerator implements LineGenerator {
     }
 
     @Override
-    public List<Boolean> lineDraw() {
+    public Line create() {
         List<Boolean> points = new ArrayList<>();
         boolean previous = false;
 
@@ -26,7 +27,7 @@ public class RandomLineGenerator implements LineGenerator {
         if (isAllPointsFalse(points)) {
             points.set(chooseSomeIndex(points.size()), true);
         }
-        return points;
+        return new Line(points);
     }
 
     private boolean lineDecider(boolean previous) {

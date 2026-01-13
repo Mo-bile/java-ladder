@@ -16,9 +16,9 @@ public class LadderBuilder {
         return new LadderBuilder()
             .withLines(
                 new Lines(
-                    new Line(() -> List.of(true, false, false)),
-                    new Line(() -> List.of(false, true, false)),
-                    new Line(() -> List.of(true, false, false))
+                    new Line(true, false, false),
+                    new Line(false, true, false),
+                    new Line(true, false, false)
                 )
             ).withGoals(
                 new Goals(

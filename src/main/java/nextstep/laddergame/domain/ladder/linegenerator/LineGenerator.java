@@ -1,9 +1,9 @@
 package nextstep.laddergame.domain.ladder.linegenerator;
 
-import java.util.List;
+import nextstep.laddergame.domain.ladder.Line;
 
 public interface LineGenerator {
 
-    List<Boolean> lineDraw();
+    Line create();
 
 }

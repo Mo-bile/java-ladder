@@ -2,8 +2,6 @@ package nextstep.laddergame.domain.ladder;
 
 import java.util.List;
 import java.util.stream.IntStream;
-import nextstep.laddergame.domain.ladder.linegenerator.LineGenerator;
-import nextstep.laddergame.domain.ladder.linegenerator.RandomLineGenerator;
 
 public record Line(List<Boolean> points) {
 
@@ -11,12 +9,8 @@ public record Line(List<Boolean> points) {
         this(IntStream.range(0, values.length).mapToObj(i -> values[i]).toList());
     }
 
-    public Line(LineGenerator lineGenerator) {
-        this(lineGenerator.lineDraw());
-    }
-
-    public Line(int countOfPerson) {
-        this(new RandomLineGenerator(countOfPerson).lineDraw());
+    public Line(int size) {
+        this(IntStream.range(0, size).mapToObj(i -> false).toList());
     }
 
     public Line {

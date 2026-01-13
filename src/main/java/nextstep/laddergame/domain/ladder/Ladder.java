@@ -1,8 +1,7 @@
 package nextstep.laddergame.domain.ladder;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import nextstep.laddergame.domain.ladder.linegenerator.RandomLineGenerator;
 
 public record Ladder(Lines lines, Goals goals) {
 
@@ -23,11 +22,11 @@ public record Ladder(Lines lines, Goals goals) {
     }
 
     private static Goals getGoals(String[] goals) {
-        return new Goals(Arrays.stream(goals).map(Goal::new).toList());
+        return new Goals(goals);
     }
 
     private static Lines getLines(int ladderHeight, int countOfPerson) {
-        return new Lines(IntStream.range(0, ladderHeight).mapToObj(i -> new Line(countOfPerson)).toList());
+        return new Lines(ladderHeight, new RandomLineGenerator(countOfPerson));
     }
 
     public Ladder(Lines lines, String... goals) {
