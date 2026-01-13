@@ -2,6 +2,7 @@ package nextstep.laddergame.domain.ladder.linegenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import nextstep.laddergame.domain.ladder.Line;
+import nextstep.laddergame.domain.ladder.Point;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -21,7 +22,7 @@ class RandomLineGeneratorTest {
 
         assertThat(
             line.points().stream()
-                .filter(Boolean::booleanValue)
+                .filter(Point::connect)
                 .count()
         ).isLessThanOrEqualTo(maxTrue);
     }

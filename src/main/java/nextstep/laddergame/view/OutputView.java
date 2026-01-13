@@ -5,6 +5,7 @@ import nextstep.laddergame.domain.game.LadderGame;
 import nextstep.laddergame.domain.game.LadderResult;
 import nextstep.laddergame.domain.ladder.Goal;
 import nextstep.laddergame.domain.ladder.Line;
+import nextstep.laddergame.domain.ladder.Point;
 import nextstep.laddergame.domain.participant.Participant;
 
 public class OutputView {
@@ -87,12 +88,12 @@ public class OutputView {
     }
 
     private static String renderLine(Line line, int verticalCount, int w) {
-        List<Boolean> points = line.points();
+        List<Point> points = line.points();
 
         StringBuilder sb = new StringBuilder();
         sb.append("|");
         for (int i = 0; i < verticalCount - 1; i++) {
-            boolean connected = (i < points.size()) && points.get(i);
+            boolean connected = (i < points.size()) && points.get(i).connect();
             sb.append(connected ? "-".repeat(w) : " ".repeat(w));
             sb.append("|");
         }

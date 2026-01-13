@@ -145,13 +145,13 @@ participant → ladder → Line → height → participants
   - LadderBuilder 는 테스트 코드용도에만 사용하기 때문에 역할이 있는 가까운곳에 옮겨서 그 위치만으로 의도를 파악할 수있게 해야한다
 - [x] : LineGenerator 의 함수형 인터페이스관련 메서드 반환값과 메서드 명 변경 고민
   - LineGenerator 의 그 이름 그대로 Line을 반환하는것이 클래스명 그대로의 의도를 드러낼 수있다.
-- [ ] : `List<Boolean> points` 멤버 변수에 Boolean 원시값 포장시도
-  - 
+- [x] : `List<Boolean> points` 멤버 변수에 Boolean 원시값 포장시도
+  - 원시값을 포장하고 필드를 connect로 Line 내 점간의 연결을 쉽게 드러내는 의도를 보이게 리팩터링 할 수있다.
 
 # step 4. 사다리(리팩터링)
 
 ## 요구사항
 
-- [ ] : step3 의 피드백 반영하기
+- [x] : step3 의 피드백 반영하기
 - [ ] : In -> Out 방식으로 TDD 도전하기
 - [ ] : 책임 주도 설계(인터페이스) 기반으로 구현하기
