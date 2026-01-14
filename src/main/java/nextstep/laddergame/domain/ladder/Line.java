@@ -9,10 +9,6 @@ public record Line(List<Point> points) {
         this(IntStream.range(0, values.length).mapToObj(i -> new Point(values[i])).toList());
     }
 
-    public Line(int size) {
-        this(IntStream.range(0, size).mapToObj(i -> new Point(false)).toList());
-    }
-
     public Line {
         validate(points);
     }

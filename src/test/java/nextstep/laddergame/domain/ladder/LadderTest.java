@@ -10,7 +10,7 @@ class LadderTest {
 
     @Test
     void 사다리_높이만큼_Line_을_생성한다() {
-        Ladder ladder = new Ladder(3, 5);
+        Ladder ladder = new Ladder(3, 2, "꽝", "당첨");
         assertThat(ladder.lines().lineList().size()).isEqualTo(3);
     }
 
@@ -20,6 +20,22 @@ class LadderTest {
             new Ladder(5, 3, "꽝");
         }).isInstanceOf(IllegalArgumentException.class)
             .hasMessage("사다리와 결과값이 다르다");
+    }
+
+    @Test
+    void 생성된_사다리가_입력이_안되면_예외전파() {
+        assertThatThrownBy(() -> {
+            new Ladder(0, 0, "꽝");
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("생성된 사다리가 없습니다");
+    }
+
+    @Test
+    void 목표에_대한_정보가_없으면_예외전파() {
+        assertThatThrownBy(() -> {
+            new Ladder(3, 5, "");
+        }).isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("목표 지점에 대한 정보가 없습니다");
     }
 
     @Test

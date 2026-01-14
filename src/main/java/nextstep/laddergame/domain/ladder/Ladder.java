@@ -38,6 +38,14 @@ public record Ladder(Lines lines, Goals goals) {
     }
 
     private void validate(Lines lines, Goals goals) {
+        if (lines.lineList().isEmpty()) {
+            throw new IllegalArgumentException("생성된 사다리가 없습니다");
+        }
+
+        if (goals.goalList().stream().anyMatch(goal -> goal.value().isEmpty())) {
+            throw new IllegalArgumentException("목표 지점에 대한 정보가 없습니다");
+        }
+
         if (lines.lineList().getFirst().size() != goals.goalList().size()) {
             throw new IllegalArgumentException("사다리와 결과값이 다르다");
         }
